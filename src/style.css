@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+}
+.progress {
+  height: 20px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background: #d3d3d3c7;
+  overflow: hidden;
+}
+
+.percents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: blue;
+  color: white;
+  overflow: hidden;
+}
+
+.percents:hover + .tooltip {
+  display: block;
+}
+
+.group-progress {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
