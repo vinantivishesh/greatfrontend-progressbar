@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ProgressBar({ percent }) {
-  const cappedVal = percent ? Math.min(Math.max(percent, 0), 100) : 0;
+  const [startTransition, setStartTransition] = useState(false);
+
+  useEffect(() => {
+    if (startTransition) return;
+    setStartTransition(true);
+  });
+
   return (
     <div className="progress">
       <div
-        className="percents"
-        style={{ width: `${cappedVal}%` }}
-        onMouseOver={(e) => console.log('hovered')}
-      >
-        {cappedVal ? `${cappedVal}%` : ''}
-      </div>
+        className={['percents', startTransition && 'percents--filled']
+          .filter(Boolean)
+          .join(' ')}
+      ></div>
     </div>
   );
 }

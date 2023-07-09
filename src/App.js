@@ -3,16 +3,26 @@ import './style.css';
 import ProgressBar from './ProgressBar';
 
 export default function App() {
+  const [total, setTotal] = useState(0);
+
   return (
-    <div className="group-progress">
-      <ProgressBar />
-      <ProgressBar percent={-50} />
-      <ProgressBar percent={2} />
-      <ProgressBar percent={10} />
-      <ProgressBar percent={25} />
-      <ProgressBar percent={50} />
-      <ProgressBar percent={99.6} />
-      <ProgressBar percent={677} />
+    <div>
+      <button
+        style={{ marginBottom: '10px' }}
+        onClick={() => setTotal(total + 1)}
+      >
+        Add
+      </button>
+      {total}
+      {total > 0 && (
+        <div className="group-progress">
+          {Array(total)
+            .fill(null)
+            .map((_, index) => (
+              <ProgressBar key={index} />
+            ))}
+        </div>
+      )}
     </div>
   );
 }

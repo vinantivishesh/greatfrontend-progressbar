@@ -10,17 +10,16 @@ body {
 }
 
 .percents {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: green;
   height: 100%;
-  background-color: blue;
-  color: white;
-  overflow: hidden;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-duration: 2000ms;
+  transition-timing-function: linear;
 }
 
-.percents:hover + .tooltip {
-  display: block;
+.percents--filled {
+  transform: scaleX(1);
 }
 
 .group-progress {
